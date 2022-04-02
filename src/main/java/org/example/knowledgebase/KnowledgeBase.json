@@ -42,7 +42,7 @@
       "noPreferredActor"
     ],
 
-    "topRatedFilmsPreference" : [
+    "topRatedMoviesPreference" : [
       "5.1",
       "5.8",
       "6.0",
@@ -57,10 +57,10 @@
       "8.3",
       "8.5",
       "8.7",
-      "noPreferredTopRatedFilms"
+      "noPreferredTopRatedMovies"
     ],
 
-    "filmYear" : [
+    "movieYear" : [
       1991,
       1992,
       1997,
@@ -75,12 +75,12 @@
       2015,
       2018,
       2019,
-      "noPreferredFilmYear"
+      "noPreferredMovieYear"
     ]
   },
 
   "finalPremisesList" : {
-    "filmTitle" : [
+    "movieTitle" : [
       "The Perfect Date",
       "Running for Grace",
       "Good Will Hunting",
@@ -113,8 +113,6 @@
         "actor": "Laura Marano",
         "ratingIMDB": "5.8",
         "mood": "stressed",
-        "language": "english",
-        "subtitle": "romanian",
         "an": 2019
       },
       "then" : "The Perfect Date",
@@ -125,8 +123,6 @@
             "actor": "Laura Marano",
             "ratingIMDB": "5.8",
             "mood": "stressed",
-            "language": "english",
-            "subtitle": "romanian",
             "an": 2019
         },
         "then" : "The Perfect Date",
@@ -137,8 +133,6 @@
             "actor": "noPreferredActor",
             "ratingIMDB": "5.8",
             "mood": "stressed",
-            "language": "english",
-            "subtitle": "romanian",
             "an": 2019
           },
           "then" : "The Perfect Date",
@@ -147,10 +141,8 @@
               "genre": "romantic",
               "ratingAge": "PG-13",
               "actor": "Laura Marano",
-              "ratingIMDB": "noPreferredTopRatedFilms",
+              "ratingIMDB": "noPreferredTopRatedMovies",
               "mood": "stressed",
-              "language": "english",
-              "subtitle": "romanian",
               "an": 2019
             },
             "then": "The Perfect Date",
@@ -163,7 +155,7 @@
                 "mood": "stressed",
                 "language": "english",
                 "subtitle": "romanian",
-                "an": "noPreferredFilmYear"
+                "an": "noPreferredMovieYear"
               },
               "then" : "The Perfect Date",
               "else" : {
@@ -171,7 +163,7 @@
                   "genre": "romantic",
                   "ratingAge": "PG-13",
                   "actor": "noPreferredActor",
-                  "ratingIMDB": "noPreferredTopRatedFilms",
+                  "ratingIMDB": "noPreferredTopRatedMovies",
                   "mood": "stressed",
                   "language": "english",
                   "subtitle": "romanian",
@@ -187,7 +179,7 @@
                     "mood": "stressed",
                     "language": "english",
                     "subtitle": "romanian",
-                    "an": "noPreferredFilmYear"
+                    "an": "noPreferredMovieYear"
                   },
                   "then" : "The Perfect Date",
                   "else" : {
@@ -195,11 +187,11 @@
                       "genre": "romantic",
                       "ratingAge": "PG-13",
                       "actor": "Laura Marano",
-                      "ratingIMDB": "noPreferredTopRatedFilms",
+                      "ratingIMDB": "noPreferredTopRatedMovies",
                       "mood": "stressed",
                       "language": "english",
                       "subtitle": "romanian",
-                      "an": "noPreferredFilmYear"
+                      "an": "noPreferredMovieYear"
                     },
                     "then" : "The Perfect Date",
                     "else" : {
@@ -207,11 +199,11 @@
                         "genre": "romantic",
                         "ratingAge": "PG-13",
                         "actor": "noPreferredActor",
-                        "ratingIMDB": "noPreferredTopRatedFilms",
+                        "ratingIMDB": "noPreferredTopRatedMovies",
                         "mood": "stressed",
                         "language": "english",
                         "subtitle": "romanian",
-                        "an": "noPreferredFilmYear"
+                        "an": "noPreferredMovieYear"
                       },
                       "then" : "The Perfect Date"
                     }
@@ -224,8 +216,10 @@
       }
     },
 
+
+
   "Running_for_Grace": {
-    "if" : {
+    "if": {
       "genre": "family",
       "ratingAge": "PG-13",
       "actor": "Ryan Potter",
@@ -235,8 +229,8 @@
       "subtitle": "romanian",
       "an": 2018
     },
-    "then" : "Running for Grace",
-    "else" : {
+    "then": "Running for Grace",
+    "else": {
       "if": {
         "genre": "family",
         "ratingAge": "PG-13",
@@ -247,9 +241,9 @@
         "subtitle": "romanian",
         "an": 2018
       },
-      "then" : "Running for Grace",
+      "then": "Running for Grace",
       "else": {
-        "if" : {
+        "if": {
           "genre": "family",
           "ratingAge": "PG-13",
           "actor": "Ryan Potter",
@@ -259,9 +253,9 @@
           "subtitle": "romanian",
           "an": 2018
         },
-        "then" : "Running for Grace",
-        "else" : {
-          "if" : {
+        "then": "Running for Grace",
+        "else": {
+          "if": {
             "genre": "family",
             "ratingAge": "PG-13",
             "actor": "Olivia Ritchie",
@@ -271,9 +265,9 @@
             "subtitle": "romanian",
             "an": 2018
           },
-          "then" : "Running for Grace",
-          "else" : {
-            "if" : {
+          "then": "Running for Grace",
+          "else": {
+            "if": {
               "genre": "family",
               "ratingAge": "PG-13",
               "actor": "Olivia Ritchie",
@@ -283,9 +277,9 @@
               "subtitle": "romanian",
               "an": 2018
             },
-            "then" : "Running for Grace",
-            "else" : {
-              "if" : {
+            "then": "Running for Grace",
+            "else": {
+              "if": {
                 "genre": "family",
                 "ratingAge": "PG-13",
                 "actor": "Olivia Ritchie",
@@ -295,9 +289,9 @@
                 "subtitle": "romanian",
                 "an": 2018
               },
-              "then" : "Running for Grace",
-              "else" : {
-                "if" : {
+              "then": "Running for Grace",
+              "else": {
+                "if": {
                   "genre": "romantic",
                   "ratingAge": "PG-13",
                   "actor": "Ryan Potter",
@@ -307,9 +301,9 @@
                   "subtitle": "romanian",
                   "an": 2018
                 },
-                "then" : "Running for Grace",
-                "else" : {
-                  "if" : {
+                "then": "Running for Grace",
+                "else": {
+                  "if": {
                     "genre": "romantic",
                     "ratingAge": "PG-13",
                     "actor": "Ryan Potter",
@@ -319,9 +313,9 @@
                     "subtitle": "romanian",
                     "an": 2018
                   },
-                  "then" : "Running for Grace",
-                  "else" : {
-                    "if" : {
+                  "then": "Running for Grace",
+                  "else": {
+                    "if": {
                       "genre": "family",
                       "ratingAge": "PG-13",
                       "actor": "Ryan Potter",
@@ -331,9 +325,9 @@
                       "subtitle": "romanian",
                       "an": 2018
                     },
-                    "then" : "Running for Grace",
-                    "else" : {
-                      "if" : {
+                    "then": "Running for Grace",
+                    "else": {
+                      "if": {
                         "genre": "family",
                         "ratingAge": "PG-13",
                         "actor": "Olivia Ritchie",
@@ -355,9 +349,9 @@
                           "subtitle": "romanian",
                           "an": 2018
                         },
-                        "then" : "Running for Grace",
-                        "else" : {
-                          "if" : {
+                        "then": "Running for Grace",
+                        "else": {
+                          "if": {
                             "genre": "family",
                             "ratingAge": "PG-13",
                             "actor": "Olivia Ritchie",
@@ -367,7 +361,176 @@
                             "subtitle": "romanian",
                             "an": 2018
                           },
-                          "then" : "Running for Grace"
+                          "then": "Running for Grace",
+                          "else": {
+                            "if": {
+                              "if": {
+                                "genre": "family",
+                                "ratingAge": "PG-13",
+                                "actor": "noPreferredActor",
+                                "ratingIMDB": "6.1",
+                                "mood": "love",
+                                "language": "english",
+                                "subtitle": "romanian",
+                                "an": 2018
+                              },
+                              "then": "Running for Grace",
+                              "else": {
+                                "if": {
+                                  "genre": "family",
+                                  "ratingAge": "PG-13",
+                                  "actor": "noPreferredActor",
+                                  "ratingIMDB": "6.1",
+                                  "mood": "happy",
+                                  "language": "english",
+                                  "subtitle": "romanian",
+                                  "an": 2018
+                                },
+                                "then": "Running for Grace",
+                                "else": {
+                                  "if": {
+                                    "genre": "family",
+                                    "ratingAge": "PG-13",
+                                    "actor": "noPreferredActor",
+                                    "ratingIMDB": "6.1",
+                                    "mood": "sad",
+                                    "language": "english",
+                                    "subtitle": "romanian",
+                                    "an": 2018
+                                  },
+                                  "then": "Running for Grace",
+                                  "else": {
+                                    "if": {
+                                      "genre": "family",
+                                      "ratingAge": "PG-13",
+                                      "actor": "Ryan Potter",
+                                      "ratingIMDB": "noPreferredTopRatedMovies",
+                                      "mood": "love",
+                                      "language": "english",
+                                      "subtitle": "romanian",
+                                      "an": 2018
+                                    },
+                                    "then": "Running for Grace",
+                                    "else": {
+                                      "if": {
+                                        "genre": "family",
+                                        "ratingAge": "PG-13",
+                                        "actor": "Ryan Potter",
+                                        "ratingIMDB": "noPreferredTopRatedMovies",
+                                        "mood": "happy",
+                                        "language": "english",
+                                        "subtitle": "romanian",
+                                        "an": 2018
+                                      },
+                                      "then": "Running for Grace",
+                                      "else": {
+                                        "if": {
+                                          "genre": "family",
+                                          "ratingAge": "PG-13",
+                                          "actor": "Ryan Potter",
+                                          "ratingIMDB": "noPreferredTopRatedMovies",
+                                          "mood": "sad",
+                                          "language": "english",
+                                          "subtitle": "romanian",
+                                          "an": 2018
+                                        },
+                                        "then": "Running for Grace",
+                                        "else": {
+                                          "if": {
+                                            "genre": "family",
+                                            "ratingAge": "PG-13",
+                                            "actor": "Ryan Potter",
+                                            "ratingIMDB": "6.1",
+                                            "mood": "love",
+                                            "language": "english",
+                                            "subtitle": "romanian",
+                                            "an": "noPreferredMovieYear"
+                                          },
+                                          "then": "Running for Grace",
+                                          "else": {
+                                            "if": {
+                                              "genre": "family",
+                                              "ratingAge": "PG-13",
+                                              "actor": "Ryan Potter",
+                                              "ratingIMDB": "6.1",
+                                              "mood": "happy",
+                                              "language": "english",
+                                              "subtitle": "romanian",
+                                              "an": "noPreferredMovieYear"
+                                            },
+                                            "then": "Running for Grace",
+                                            "else": {
+                                              "if": {
+                                                "genre": "family",
+                                                "ratingAge": "PG-13",
+                                                "actor": "Ryan Potter",
+                                                "ratingIMDB": "6.1",
+                                                "mood": "sad",
+                                                "language": "english",
+                                                "subtitle": "romanian",
+                                                "an": "noPreferredMovieYear"
+                                              },
+                                              "then": "Running for Grace",
+                                              "else": {
+                                                "if": {
+                                                  "genre": "family",
+                                                  "ratingAge": "PG-13",
+                                                  "actor": "noPreferredActor",
+                                                  "ratingIMDB": "noPreferredTopRatedMovies",
+                                                  "mood": "love",
+                                                  "language": "english",
+                                                  "subtitle": "romanian",
+                                                  "an": 2018
+                                                },
+                                                "then": "Running for Grace",
+                                                "else": {
+                                                  "if": {
+                                                    "genre": "family",
+                                                    "ratingAge": "PG-13",
+                                                    "actor": "noPreferredActor",
+                                                    "ratingIMDB": "6.1",
+                                                    "mood": "happy",
+                                                    "language": "english",
+                                                    "subtitle": "romanian",
+                                                    "an": "noPreferredMovieYear"
+                                                  },
+                                                  "then": "Running for Grace",
+                                                  "else": {
+                                                    "if": {
+                                                      "genre": "family",
+                                                      "ratingAge": "PG-13",
+                                                      "actor": "Ryan Potter",
+                                                      "ratingIMDB": "noPreferredTopRatedMovies",
+                                                      "mood": "sad",
+                                                      "language": "english",
+                                                      "subtitle": "romanian",
+                                                      "an": "noPreferredMovieYear"
+                                                    },
+                                                    "then": "Running for Grace",
+                                                    "else": {
+                                                      "if": {
+                                                        "genre": "family",
+                                                        "ratingAge": "PG-13",
+                                                        "actor": "noPreferredActor",
+                                                        "ratingIMDB": "noPreferredTopRatedMovies",
+                                                        "mood": "sad",
+                                                        "an": "noPreferredMovieYear"
+                                                      },
+                                                      "then": "Running for Grace"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -380,6 +543,8 @@
       }
     }
   },
+
+
 
   "Good Will Hunting": {
     "genre": "drama",
