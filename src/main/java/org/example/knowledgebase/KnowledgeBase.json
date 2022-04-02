@@ -1,0 +1,678 @@
+{
+  "initialPremisesList" : {
+    "age" : [
+      "ageAbove17",
+      "ageUnder17"
+    ],
+    "actors": [
+      "Laura_Marano",
+      "Ryan_Potter",
+      "Olivia_Ritchie",
+      "Robin_Williams",
+      "Matt_Damon",
+      "Taner_Stine",
+      "Evan_Hofer",
+      "Sandra_Bullock",
+      "John_Hamm",
+      "Jason_Schwartzman",
+      "J_K_Simmons",
+      "Paige_O'Hara",
+      "Robby_Benson",
+      "Jay_Baruchel",
+      "Gerard_Butlern",
+      "Maryl_Streep",
+      "Amanda_Seyfried",
+      "Christian_Bale",
+      "Albert_Brooks",
+      "Ellen_DeGeneres",
+      "Scott_Weinger",
+      "Keanu_Reeves",
+      "Melissa_McCarthy",
+      "Asa_Butterfield",
+      "Chloe_Grace_Moretz",
+      "Morgan_Freeman",
+      "Kodi_Smith_McPhee",
+      "Francois_Cluze",
+      "Omar_Sy",
+      "Edward_Asner",
+      "Jordan_Nagai",
+      "Scarlet_Johansson",
+      "John_Cena",
+      "Shannon_Purser",
+      "noPreferredActor"
+    ],
+
+    "topRatedFilmsPreference" : [
+      "5.1",
+      "5.8",
+      "6.0",
+      "6.1",
+      "6.4",
+      "6.5",
+      "6.6",
+      "6.7",
+      "7.5",
+      "8.1",
+      "8.2",
+      "8.3",
+      "8.5",
+      "8.7",
+      "noPreferredTopRatedFilms"
+    ],
+
+    "filmYear" : [
+      1991,
+      1992,
+      1997,
+      1999,
+      2003,
+      2008,
+      2009,
+      2010,
+      2011,
+      2013,
+      2014,
+      2015,
+      2018,
+      2019,
+      "noPreferredFilmYear"
+    ]
+  },
+
+  "finalPremisesList" : {
+    "filmTitle" : [
+      "The Perfect Date",
+      "Running for Grace",
+      "Good Will Hunting",
+      "Run the Race",
+      "Minions",
+      "Klaus",
+      "Beauty and the Beast",
+      "How to Train Your Dragon",
+      "Mamma Mia!",
+      "Ford vs Ferrari (Le Mans '66)",
+      "Finding Nemo",
+      "Aladdin",
+      "The Matrix",
+      "The Heat",
+      "Hugo",
+      "Alpha",
+      "Untouchables",
+      "Up",
+      "Lucy",
+      "Playing with fire",
+      "Sierra Burgess Is A Loser"
+    ]
+  },
+
+  "scope_rules" : {
+    "The_Perfect_Date" : {
+      "if" : {
+        "genre": "comedy",
+        "ratingAge": "PG-13",
+        "actor": "Laura Marano",
+        "ratingIMDB": "5.8",
+        "mood": "stressed",
+        "language": "english",
+        "subtitle": "romanian",
+        "an": 2019
+      },
+      "then" : "The Perfect Date",
+      "else" : {
+        "if" : {
+            "genre": "romantic",
+            "ratingAge": "PG-13",
+            "actor": "Laura Marano",
+            "ratingIMDB": "5.8",
+            "mood": "stressed",
+            "language": "english",
+            "subtitle": "romanian",
+            "an": 2019
+        },
+        "then" : "The Perfect Date",
+        "else" : {
+          "if" : {
+            "genre": "romantic",
+            "ratingAge": "PG-13",
+            "actor": "noPreferredActor",
+            "ratingIMDB": "5.8",
+            "mood": "stressed",
+            "language": "english",
+            "subtitle": "romanian",
+            "an": 2019
+          },
+          "then" : "The Perfect Date",
+          "else" : {
+            "if" : {
+              "genre": "romantic",
+              "ratingAge": "PG-13",
+              "actor": "Laura Marano",
+              "ratingIMDB": "noPreferredTopRatedFilms",
+              "mood": "stressed",
+              "language": "english",
+              "subtitle": "romanian",
+              "an": 2019
+            },
+            "then": "The Perfect Date",
+            "else": {
+              "if": {
+                "genre": "romantic",
+                "ratingAge": "PG-13",
+                "actor": "Laura Marano",
+                "ratingIMDB": "5.8",
+                "mood": "stressed",
+                "language": "english",
+                "subtitle": "romanian",
+                "an": "noPreferredFilmYear"
+              },
+              "then" : "The Perfect Date",
+              "else" : {
+                "if" : {
+                  "genre": "romantic",
+                  "ratingAge": "PG-13",
+                  "actor": "noPreferredActor",
+                  "ratingIMDB": "noPreferredTopRatedFilms",
+                  "mood": "stressed",
+                  "language": "english",
+                  "subtitle": "romanian",
+                  "an": 2019
+                },
+                "then" : "The Perfect Date",
+                "else" : {
+                  "if" : {
+                    "genre": "romantic",
+                    "ratingAge": "PG-13",
+                    "actor": "noPreferredActor",
+                    "ratingIMDB": "5.8",
+                    "mood": "stressed",
+                    "language": "english",
+                    "subtitle": "romanian",
+                    "an": "noPreferredFilmYear"
+                  },
+                  "then" : "The Perfect Date",
+                  "else" : {
+                    "if" : {
+                      "genre": "romantic",
+                      "ratingAge": "PG-13",
+                      "actor": "Laura Marano",
+                      "ratingIMDB": "noPreferredTopRatedFilms",
+                      "mood": "stressed",
+                      "language": "english",
+                      "subtitle": "romanian",
+                      "an": "noPreferredFilmYear"
+                    },
+                    "then" : "The Perfect Date",
+                    "else" : {
+                      "if" : {
+                        "genre": "romantic",
+                        "ratingAge": "PG-13",
+                        "actor": "noPreferredActor",
+                        "ratingIMDB": "noPreferredTopRatedFilms",
+                        "mood": "stressed",
+                        "language": "english",
+                        "subtitle": "romanian",
+                        "an": "noPreferredFilmYear"
+                      },
+                      "then" : "The Perfect Date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+  "Running_for_Grace": {
+    "if" : {
+      "genre": "family",
+      "ratingAge": "PG-13",
+      "actor": "Ryan Potter",
+      "ratingIMDB": "6.1",
+      "mood": "love",
+      "language": "english",
+      "subtitle": "romanian",
+      "an": 2018
+    },
+    "then" : "Running for Grace",
+    "else" : {
+      "if": {
+        "genre": "family",
+        "ratingAge": "PG-13",
+        "actor": "Ryan Potter",
+        "ratingIMDB": "6.1",
+        "mood": "happy",
+        "language": "english",
+        "subtitle": "romanian",
+        "an": 2018
+      },
+      "then" : "Running for Grace",
+      "else": {
+        "if" : {
+          "genre": "family",
+          "ratingAge": "PG-13",
+          "actor": "Ryan Potter",
+          "ratingIMDB": "6.1",
+          "mood": "sad",
+          "language": "english",
+          "subtitle": "romanian",
+          "an": 2018
+        },
+        "then" : "Running for Grace",
+        "else" : {
+          "if" : {
+            "genre": "family",
+            "ratingAge": "PG-13",
+            "actor": "Olivia Ritchie",
+            "ratingIMDB": "6.1",
+            "mood": "love",
+            "language": "english",
+            "subtitle": "romanian",
+            "an": 2018
+          },
+          "then" : "Running for Grace",
+          "else" : {
+            "if" : {
+              "genre": "family",
+              "ratingAge": "PG-13",
+              "actor": "Olivia Ritchie",
+              "ratingIMDB": "6.1",
+              "mood": "happy",
+              "language": "english",
+              "subtitle": "romanian",
+              "an": 2018
+            },
+            "then" : "Running for Grace",
+            "else" : {
+              "if" : {
+                "genre": "family",
+                "ratingAge": "PG-13",
+                "actor": "Olivia Ritchie",
+                "ratingIMDB": "6.1",
+                "mood": "sad",
+                "language": "english",
+                "subtitle": "romanian",
+                "an": 2018
+              },
+              "then" : "Running for Grace",
+              "else" : {
+                "if" : {
+                  "genre": "romantic",
+                  "ratingAge": "PG-13",
+                  "actor": "Ryan Potter",
+                  "ratingIMDB": "6.1",
+                  "mood": "love",
+                  "language": "english",
+                  "subtitle": "romanian",
+                  "an": 2018
+                },
+                "then" : "Running for Grace",
+                "else" : {
+                  "if" : {
+                    "genre": "romantic",
+                    "ratingAge": "PG-13",
+                    "actor": "Ryan Potter",
+                    "ratingIMDB": "6.1",
+                    "mood": "happy",
+                    "language": "english",
+                    "subtitle": "romanian",
+                    "an": 2018
+                  },
+                  "then" : "Running for Grace",
+                  "else" : {
+                    "if" : {
+                      "genre": "family",
+                      "ratingAge": "PG-13",
+                      "actor": "Ryan Potter",
+                      "ratingIMDB": "6.1",
+                      "mood": "sad",
+                      "language": "english",
+                      "subtitle": "romanian",
+                      "an": 2018
+                    },
+                    "then" : "Running for Grace",
+                    "else" : {
+                      "if" : {
+                        "genre": "family",
+                        "ratingAge": "PG-13",
+                        "actor": "Olivia Ritchie",
+                        "ratingIMDB": "6.1",
+                        "mood": "love",
+                        "language": "english",
+                        "subtitle": "romanian",
+                        "an": 2018
+                      },
+                      "then": "Running for Grace",
+                      "else": {
+                        "if": {
+                          "genre": "family",
+                          "ratingAge": "PG-13",
+                          "actor": "Olivia Ritchie",
+                          "ratingIMDB": "6.1",
+                          "mood": "happy",
+                          "language": "english",
+                          "subtitle": "romanian",
+                          "an": 2018
+                        },
+                        "then" : "Running for Grace",
+                        "else" : {
+                          "if" : {
+                            "genre": "family",
+                            "ratingAge": "PG-13",
+                            "actor": "Olivia Ritchie",
+                            "ratingIMDB": "6.1",
+                            "mood": "sad",
+                            "language": "english",
+                            "subtitle": "romanian",
+                            "an": 2018
+                          },
+                          "then" : "Running for Grace"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "Good Will Hunting": {
+    "genre": "drama",
+    "ratingAge": "R",
+    "actor": "Robin Williams",
+    "ratingIMDB": "8.3",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 1997
+  },
+
+  "Good Will Hunting": {
+    "genre": "drama",
+    "ratingAge": "R",
+    "actor": "Robin Williams",
+    "ratingIMDB": "8.3",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 1997
+  },
+
+  "Good Will Hunting": {
+    "genre": "romantic",
+    "ratingAge": "R",
+    "actor": "Robin Williams",
+    "ratingIMDB": "8.3",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 1997
+  },
+
+  "Good Will Hunting": {
+    "genre": "romantic",
+    "ratingAge": "R",
+    "actor": "Robin Williams",
+    "ratingIMDB": "8.3",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 1997
+  },
+
+
+
+  "Run the Race": {
+    "genre": "drama",
+    "ratingAge": "PG-13",
+    "actor": "Evan Hofer",
+    "ratingIMDB": "6.0",
+    "mood": "helplessness",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 2018
+  },
+
+  "Run the Race": {
+    "genre": "drama",
+    "ratingAge": "PG-13",
+    "actor": "Taner Stine",
+    "ratingIMDB": "6.0",
+    "mood": "helplessness",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 2018
+  },
+
+  "Run the Race": {
+    "genre": "sport",
+    "ratingAge": "PG-13",
+    "actor": "Evan Hofer",
+    "ratingIMDB": "6.0",
+    "mood": "helplessness",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 2018
+  },
+
+  "Run the Race": {
+    "genre": "sport",
+    "ratingAge": "PG-13",
+    "actor": "Taner Stine",
+    "ratingIMDB": "6.0",
+    "mood": "helplessness",
+    "language": "english",
+    "subtitle": "romanian",
+    "an": 2018
+  },
+
+
+
+  "Minions": {
+    "genre": "animatie",
+    "ratingAge": "PG-13",
+    "actor": "John Hamm",
+    "ratingIMDB": "6.4",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2015
+  },
+
+  "Minions": {
+    "genre": "animatie",
+    "ratingAge": "PG-13",
+    "actor": "Sandra Bullock",
+    "ratingIMDB": "6.4",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2015
+  },
+
+  "Minions": {
+    "genre": "aventura",
+    "ratingAge": "PG-13",
+    "actor": "John Hamm",
+    "ratingIMDB": "6.4",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2015
+  },
+
+  "Minions": {
+    "genre": "aventura",
+    "ratingAge": "PG-13",
+    "actor": "Sandra Bullock",
+    "ratingIMDB": "6.4",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2015
+  },
+
+  "Minions": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "John Hamm",
+    "ratingIMDB": "6.4",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2015
+  },
+
+  "Minions": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "Sandra Bullock",
+    "ratingIMDB": "6.4",
+    "mood": "depressive",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2015
+  },
+
+
+
+  "Klaus": {
+    "genre": "animatie",
+    "ratingAge": "PG-13",
+    "actor": "Jason Schwartzman",
+    "ratingIMDB": "8.2",
+    "mood": "sad",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "animatie",
+    "ratingAge": "PG-13",
+    "actor": "Jason Schwartzman",
+    "ratingIMDB": "8.2",
+    "mood": "demotivate",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "animatie",
+    "ratingAge": "PG-13",
+    "actor": "J.K.Simmons",
+    "ratingIMDB": "8.2",
+    "mood": "sad",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "animatie",
+    "ratingAge": "PG-13",
+    "actor": "J.K.Simmons",
+    "ratingIMDB": "8.2",
+    "mood": "demotivate",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "aventura",
+    "ratingAge": "PG-13",
+    "actor": "Jason Schwartzman",
+    "ratingIMDB": "8.2",
+    "mood": "sad",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "aventura",
+    "ratingAge": "PG-13",
+    "actor": "Jason Schwartzman",
+    "ratingIMDB": "8.2",
+    "mood": "demotivate",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "aventura",
+    "ratingAge": "PG-13",
+    "actor": "J.K.Simmons",
+    "ratingIMDB": "8.2",
+    "mood": "sad",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "aventura",
+    "ratingAge": "PG-13",
+    "actor": "J.K.Simmons",
+    "ratingIMDB": "8.2",
+    "mood": "demotivate",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "Jason Schwartzman",
+    "ratingIMDB": 8.2,
+    "mood": "sad",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "Jason Schwartzman",
+    "ratingIMDB": 8.2,
+    "mood": "demotivate",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "J.K.Simmons",
+    "ratingIMDB": 8.2,
+    "mood": "sad",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  },
+
+  "Klaus": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "J.K.Simmons",
+    "ratingIMDB": 8.2,
+    "mood": "demotivate",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  }
+}
+
+
+}

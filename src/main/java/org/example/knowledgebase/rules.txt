@@ -1,38 +1,47 @@
-if an >= 2015 then an_film_recent
-else if an <= 2000 then an_film_clasic
-else an_film_nu_conteaza
+if film_year >= 2015 then film_year_recent
+else if film_year <= 2000 then film_year_classic
+else film_year_don't_care
 
-if varsta < 17 then ratingVarsta_R
-else if varsta >= 13 then ratingVarsta_PG-13
-else ratingVarsta_G
+if userAge < 17 then userAgeRating_Restricted
+else userAgeRating_General
 
-if ratingIMDB > 7.0 then rating_bun
-else rating_nu_conteaza
+if ratingIMDB > 7.0 then ratingIMDB_top_rated_films
+else rating_IMDB_don't_care
 
-Conteaza aparentele pentru tine? DA => rating_bun   NU => rating_nu_conteaza
-
-Ai avut o saptamana dificila la munca? Da => Stresat
-Ai avut performante scazute la munca? DA => Dezamagit
-Ai multe lucruri de facut la munca si putin timp la dispozitie? DA => Demotivat
+Do you consider other's opinions about films as a guideline? YES => top_rated_films     NO => don't care
 
 
+Do you have a difficult week at work? YES => MOOD = STRESSED   NO = RELAXED
+!!!!!Do you have low performance at work? YES => MOOD = DISAPPOINTED
+Do you have lots to do at work,and you are short on time? YES => MOOD = DEMOTIVATED
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Laura_Marano & ratingIMDB_5.8 & stareDeSpirit_stresat & limba_Engleza & subtitrare_Romana & an_2019
+
+if mood_stressed then film_genre_comedy
+if mood_sad then film_genre_comedy
+if mood_anger then film_genre_family
+if mood_fear then film_genre_sport
+
+
+
+############################################### REGULI DE SCOP (FINALE) ###############################################
+
+
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Laura_Marano & ratingIMDB_5.8 & mood_stressed & limba_Engleza & subtitrare_Romana & an_2019
 	then The_Perfect_Date
 
-if gen_romantic & ratingVarsta_PG-13 & actor_Laura_Marano & ratingIMDB_5.8 & stareDeSpirit_stresat & limba_Engleza & subtitrare_Romana & an_2019
+if gen_romantic & ratingVarsta_PG-13 & actor_Laura_Marano & ratingIMDB_5.8 & mood_stressed & limba_Engleza & subtitrare_Romana & an_2019
 	then The_Perfect_Date
 
 
 
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2018
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2018
 	then Sierra_Burges_Is_A_Looser
 
-if gen_drama & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2018
+if gen_drama & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2018
 	then Sierra_Burges_Is_A_Looser
 
-if gen_romantic & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2018
+if gen_romantic & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2018
 	then Sierra_Burges_Is_A_Looser
 
 
@@ -89,7 +98,7 @@ if gen_romantic & ratingVarsta_PG-13 & actor_Olivia_Ritchie & ratingIMDB_6.1 & s
 
 
 
-if gen_comedie & ratingVarsta_R & actor_Melissa_McCarthy & ratingIMDB_6.6 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2013
+if film_genre_comedy & ratingVarsta_R & actor_Melissa_McCarthy & ratingIMDB_6.6 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2013
 	then The_Heat
 
 if gen_actiune & ratingVarsta_R & actor_Melissa_McCarthy & ratingIMDB_6.6 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2013
@@ -131,7 +140,7 @@ if gen_sport & ratingVarsta_PG-13 & actor_Evan_Hofer & ratingIMDB_6.0 & stareDeS
 
 
 
-if gen_comedie & ratingVarsta_PG-13 & actor_John_Cena & ratingIMDB_5.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_John_Cena & ratingIMDB_5.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
 	then Run_the_Race
 
 if gen_familie & ratingVarsta_PG-13 & actor_John_Cena & ratingIMDB_5.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
@@ -146,16 +155,16 @@ if gen_animatie & ratingVarsta_PG-13 & actor_Sandra_Bullock & ratingIMDB_6.4 & s
 if gen_animatie & ratingVarsta_PG-13 & actor_John_Hamm & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
 	then Minions
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Sandra_Bullock & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Sandra_Bullock & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
 	then Minions
 
-if gen_aventura & ratingVarsta_PG-13 & actor_John_Hamm & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
+if film_genre_adventure & ratingVarsta_PG-13 & actor_John_Hamm & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
 	then Minions
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Sandra_Bullock & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Sandra_Bullock & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
 	then Minions
 
-if gen_comedie & ratingVarsta_PG-13 & actor_John_Hamm & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
+if film_genre_comedy & ratingVarsta_PG-13 & actor_John_Hamm & ratingIMDB_6.4 & stareDeSpirit_depresie & limba_Engleza & subtitrare_Romana & an_2015
 	then Minions
 
 
@@ -176,16 +185,16 @@ if gen_animatie & ratingVarsta_G & actor_Albert_Brooks & ratingIMDB_8.2 & stareD
 if gen_animatie & ratingVarsta_G & actor_Ellen_DeGeneres & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
 	then Finding_Nemo
 
-if gen_aventura & ratingVarsta_G & actor_Albert_Brooks & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
+if film_genre_adventure & ratingVarsta_G & actor_Albert_Brooks & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
 	then Finding_Nemo
 
-if gen_aventura & ratingVarsta_G & actor_Ellen_DeGeneres & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
+if film_genre_adventure & ratingVarsta_G & actor_Ellen_DeGeneres & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
 	then Finding_Nemo
 
-if gen_comedie & ratingVarsta_G & actor_Albert_Brooks & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
+if film_genre_comedy & ratingVarsta_G & actor_Albert_Brooks & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
 	then Finding_Nemo
 
-if gen_comedie & ratingVarsta_G & actor_Ellen_DeGeneres & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
+if film_genre_comedy & ratingVarsta_G & actor_Ellen_DeGeneres & ratingIMDB_8.2 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2003
 	then Finding_Nemo
 
 
@@ -203,10 +212,10 @@ if gen_actiune & ratingVarsta_PG-13 & actor_Jay_Baruchel & ratingIMDB_8.1 & star
 if gen_actiune & ratingVarsta_PG-13 & actor_Gerrard_Buttler & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2010
 	then How_to_Train_Your_Dragon
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jay_Baruchel & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2010
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jay_Baruchel & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2010
 	then How_to_Train_Your_Dragon
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Gerrard_Buttler & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2010
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Gerrard_Buttler & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2010
 	then How_to_Train_Your_Dragon
 
 
@@ -230,40 +239,40 @@ if gen_animatie & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 
 if gen_animatie & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_aventura & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_adventure & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_aventura & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_adventure & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_aventura & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_adventure & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_comedie & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_comedie & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_demotivat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jason_Schwartzman & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
-if gen_comedie & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
+if film_genre_comedy & ratingVarsta_PG-13 & actor_J_K_Simmons & ratingIMDB_8.2 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2019
 	then Klaus
 
 
@@ -350,79 +359,79 @@ if gen_animatie & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stare
 if gen_animatie & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_aventura & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_adventure & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Scott_Weinger & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_trist & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_iubire & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_singur & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
-if gen_comedie & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
+if film_genre_comedy & ratingVarsta_G & actor_Robin_Williams & ratingIMDB_8.1 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_1992
 	then Aladdin
 
 
 
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_nesiguranta & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_nesiguranta & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_optimism & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_optimism & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_curios & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_curios & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_nesiguranta & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_nesiguranta & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_suparat & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_optimism & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_optimism & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_curios & limba_Engleza & subtitrare_Romana & an_2011
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Chloe_Grace_Moretz & ratingIMDB_7.5 & stareDeSpirit_curios & limba_Engleza & subtitrare_Romana & an_2011
 	then Hugo
 
 if gen_drama & ratingVarsta_PG-13 & actor_Asa_Butterfield & ratingIMDB_7.5 & stareDeSpirit_nesiguranta & limba_Engleza & subtitrare_Romana & an_2011
@@ -488,16 +497,16 @@ if gen_actiune & ratingVarsta_PG-13 & actor_Kodi_Smith-McPhee & ratingIMDB_6.7 &
 if gen_actiune & ratingVarsta_PG-13 & actor_Kodi_Smith-McPhee & ratingIMDB_6.7 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2018
 	then Alpha
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Morgan_Freeman & ratingIMDB_6.7 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2018
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Morgan_Freeman & ratingIMDB_6.7 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2018
 	then Alpha
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Morgan_Freeman & ratingIMDB_6.7 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2018
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Morgan_Freeman & ratingIMDB_6.7 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2018
 	then Alpha
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Kodi_Smith-McPhee & ratingIMDB_6.7 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2018
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Kodi_Smith-McPhee & ratingIMDB_6.7 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2018
 	then Alpha
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Kodi_Smith-McPhee & ratingIMDB_6.7 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2018
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Kodi_Smith-McPhee & ratingIMDB_6.7 & stareDeSpirit_descurajat & limba_Engleza & subtitrare_Romana & an_2018
 	then Alpha
 
 if gen_drama & ratingVarsta_PG-13 & actor_Morgan_Freeman & ratingIMDB_6.7 & stareDeSpirit_neputinta & limba_Engleza & subtitrare_Romana & an_2018
@@ -626,76 +635,76 @@ if gen_biografie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeS
 if gen_biografie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Omar_Sy & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_neputinta & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_depresie & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Engleza & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Engleza & an_2011
 	then Intouchable
 
-if gen_comedie & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
+if film_genre_comedy & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpirit_descurajat & limba_Franceza & subtitrare_Romana & an_2011
 	then Intouchable
 
 if gen_drama & ratingVarsta_R & actor_Francois_Cluze & ratingIMDB_8.5 & stareDeSpirit_suparat & limba_Franceza & subtitrare_Engleza & an_2011
@@ -773,7 +782,7 @@ if gen_drama & ratingVarsta_R & actor_Anne_Le_Ny & ratingIMDB_8.5 & stareDeSpiri
 
 
 
-if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_fericit & limba_Engleza & subtitrare_Romana & an_2009
+if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & mood_happy & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
 if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
@@ -782,10 +791,10 @@ if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & sta
 if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2009
+if gen_animatie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_fericit & limba_Engleza & subtitrare_Romana & an_2009
+if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & mood_happy & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
 if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
@@ -794,64 +803,64 @@ if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & sta
 if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2009
+if gen_animatie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_fericit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & mood_happy & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_fericit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & mood_happy & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_aventura & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_adventure & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_fericit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & mood_happy & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Edward_Asner & ratingIMDB_8.3 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_fericit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & mood_happy & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_speranta & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_ingrijorare & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & stareDeSpirit_dezamagit & limba_Engleza & subtitrare_Romana & an_2009
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Jordan_Nagai & ratingIMDB_8.3 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2009
 	then Up
 
 
 
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Maryl_Streep & ratingIMDB_6.5 & stareDeSpirit_indispus & limba_Engleza & subtitrare_Romana & an_2008
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Maryl_Streep & ratingIMDB_6.5 & stareDeSpirit_indispus & limba_Engleza & subtitrare_Romana & an_2008
 	then Mamma_Mia!
 
-if gen_comedie & ratingVarsta_PG-13 & actor_Amanda_Seyfried & ratingIMDB_6.5 & stareDeSpirit_indispus & limba_Engleza & subtitrare_Romana & an_2008
+if film_genre_comedy & ratingVarsta_PG-13 & actor_Amanda_Seyfried & ratingIMDB_6.5 & stareDeSpirit_indispus & limba_Engleza & subtitrare_Romana & an_2008
 	then Mamma_Mia!
 
 if gen_musical & ratingVarsta_PG-13 & actor_Maryl_Streep & ratingIMDB_6.5 & stareDeSpirit_indispus & limba_Engleza & subtitrare_Romana & an_2008
