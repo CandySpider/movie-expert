@@ -1,11 +1,18 @@
 package org.example;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.example.inference.Inference;
+
+import java.util.ArrayList;
 
 
 /**
@@ -13,27 +20,155 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    private Inference inference = new Inference();
+
+    static String[] actors = {"Laura_Marano","Ryan_Potter","Olivia_Ritchie","Robin_Williams","Matt_Damon","Taner_Stine","Evan_Hofer","Sandra_Bullock",
+            "John_Hamm","Jason_Schwartzman","J_K_Simmons","Paige_O'Hara","Robby_Benson","Jay_Baruchel","Gerard_Butler","Maryl_Streep","Amanda_Seyfried","Christian_Bale",
+            "Albert_Brooks","Ellen_DeGeneres","Scott_Weinger","Keanu_Reeves","Melissa_McCarthy","Asa_Butterfield","Chloe_Grace_Moretz","Morgan_Freeman","Kodi_Smith_McPhee",
+            "Francois_Cluze","Omar_Sy","Edward_Asner","Jordan_Nagai","Scarlet_Johansson","John_Cena","Shannon_Purser"
+    };
+
+    public static void main(String[] args) {
+
+//        ArrayList<String> actorsList = new ArrayList<String>();
+//
+//        for(int i = 0; i < actors.length; i++) {
+//            actorsList.add(i, actors[i]);
+//        }
+
+        launch();
+    }
+
+    final TextField actorsTextField = new TextField("");
+    final TextArea textArea = new TextArea("");
+
+
     @Override
     public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        Button button = new Button();
-        button.setText("Click this");
+        final ToggleGroup toggleGroupUserAge = new ToggleGroup();
+        final ToggleGroup toggleGroupPreferredActor = new ToggleGroup();
+        final ToggleGroup toggleGroupTopRatedFilms = new ToggleGroup();
+        final ToggleGroup toggleGroupFilmYear = new ToggleGroup();
 
-        StackPane layout = new StackPane();
-        layout.getChildren().add(label);
-        layout.getChildren().add(button);
+        stage.setTitle("Movies expert");
+        Group layout = new Group();
+        Scene scene = new Scene(layout, 1280, 960);
 
-        var scene = new Scene(layout, 640, 480);
+        GridPane gridPane = new GridPane();
+
+        RadioButton ageAbove17RadioButton = new RadioButton("above 17 years old");
+        RadioButton ageUnder17RadioButton = new RadioButton("under 17 years old");
+        RadioButton preferredActorRadioButton = new RadioButton("Mark this!");
+        RadioButton noPreferredActorRadioButton = new RadioButton("No preferred actor? Mark this!");
+        RadioButton topRatedFilmsRadioButton = new RadioButton("yes");
+        RadioButton noPreferenceTopRatedFilmsRadioButton = new RadioButton("No preference for film's rating? Mark this!");
+        RadioButton recentFilmRadioButton = new RadioButton("recent");
+        RadioButton classicFilmRadioButton = new RadioButton("classic");
+        RadioButton noPreferenceFilmYearRadioButton = new RadioButton("No preference for film's year? Mark this!");
+
+        ageAbove17RadioButton.setToggleGroup(toggleGroupUserAge);
+        ageUnder17RadioButton.setToggleGroup(toggleGroupUserAge);
+
+        preferredActorRadioButton.setToggleGroup(toggleGroupPreferredActor);
+        noPreferredActorRadioButton.setToggleGroup(toggleGroupPreferredActor);
+
+        topRatedFilmsRadioButton.setToggleGroup(toggleGroupTopRatedFilms);
+        noPreferenceTopRatedFilmsRadioButton.setToggleGroup(toggleGroupTopRatedFilms);
+
+        recentFilmRadioButton.setToggleGroup(toggleGroupFilmYear);
+        classicFilmRadioButton.setToggleGroup(toggleGroupFilmYear);
+        noPreferenceFilmYearRadioButton.setToggleGroup(toggleGroupFilmYear);
+
+        Button searchMovieButton = new Button();
+        searchMovieButton.setText("Start movie search");
+
+        final ComboBox actorsComboBox = new ComboBox();
+
+        for(int i = 0; i < actors.length; i++) {
+            actorsComboBox.getItems().add(actors[i]);
+        }
+
+        gridPane.setVgap(8);
+        gridPane.setHgap(20);
+        gridPane.setPadding(new Insets(5,5,5,5));
+
+        gridPane.add(new Label("How old are you?"),0,0);
+        gridPane.add(ageUnder17RadioButton, 1,0);
+        gridPane.add(ageAbove17RadioButton, 2,0);
+
+        gridPane.add(new Label("Pick your preferred actor"),0,1);   // column = 0, row = 1
+        gridPane.add(actorsComboBox,1,1);   // column = 1, row = 1
+        gridPane.add(preferredActorRadioButton,2,1);   // column = 2, row = 1
+        gridPane.add(noPreferredActorRadioButton,3,1); // column = 4, row = 1
+
+        gridPane.add(new Label("Do you prefer top rated films?"), 0,2);   // column = 0, row = 2
+        gridPane.add(topRatedFilmsRadioButton, 1, 2);
+        gridPane.add(noPreferenceTopRatedFilmsRadioButton, 2, 2);
+
+        gridPane.add(new Label("What type of film do you prefer?"), 0, 3);
+        gridPane.add(recentFilmRadioButton, 1,3);
+        gridPane.add(classicFilmRadioButton, 2,3);
+        gridPane.add(noPreferenceFilmYearRadioButton, 3,3);
+
+        gridPane.add(searchMovieButton, 1,5);
+
+        /**
+         * if the button is pressed then I save user answers, start inference and open a new window/page with the inference's result (movie title)
+         * */
+        searchMovieButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                String filmTitle = "";
+
+                // save answers
+                // possible answers
+                boolean ageAbove17 = false, ageUnder17 = false;
+                boolean preferredActor = false, noPreferredActor = false;
+                boolean topRatedFilms = false, noPreferenceTopRatedFilms = false;
+                boolean recentFilm = false, classicFilm = false, noPreferenceFilmYear = false;
+
+                if(ageAbove17RadioButton.isSelected())
+                    ageAbove17 = true;
+                else if(ageUnder17RadioButton.isSelected())
+                    ageUnder17 = true;
+
+                if(preferredActorRadioButton.isSelected())
+                    preferredActor = true;
+                else if(noPreferredActorRadioButton.isSelected())
+                    noPreferredActor = true;
+
+                if(topRatedFilmsRadioButton.isSelected())
+                    topRatedFilms = true;
+                else if (noPreferenceTopRatedFilmsRadioButton.isSelected())
+                    noPreferenceTopRatedFilms = true;
+
+                if(recentFilmRadioButton.isSelected())
+                    recentFilm = true;
+                else if(classicFilmRadioButton.isSelected())
+                    classicFilm = true;
+                else if(noPreferenceFilmYearRadioButton.isSelected())
+                    noPreferenceFilmYear = true;
+
+                inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear);
+
+                // start inference
+                filmTitle = inference.startInference();
+
+                // display inference's result
+                gridPane.add(new Label("Your recommended film is:"),0,7);
+                gridPane.add(new Label(filmTitle), 1, 7);
+            }
+        });
+
+        layout.getChildren().add(gridPane);
         stage.setScene(scene);
         stage.show();
 
+
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+
 
 }
