@@ -11,9 +11,11 @@ else rating_IMDB_don't_care
 Do you consider other's opinions about films as a guideline? YES => top_rated_films     NO => don't care
 
 
-Do you have a difficult week at work? YES => MOOD = STRESSED   NO = RELAXED
-!!!!!Do you have low performance at work? YES => MOOD = DISAPPOINTED
-Do you have lots to do at work,and you are short on time? YES => MOOD = DEMOTIVATED
+//stressed, love, happy, sad, depressive
+// ar trebui cate o regula pentru fiecare dar incerc sa fac 3 reguli pentru test
+In the past two weeks how often have you felt down? MANY_TIMES => MOOD = DEPRESSIVE   NONE = HAPPY
+Do you have a lover or a special person?    YES => LOVE     NO => SAD
+Do you have lots to do at work,and you are short on time? YES => MOOD = STRESSED     NO => RELAXED
 
 
 if mood_stressed then film_genre_comedy

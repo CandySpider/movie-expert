@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Film {
+public class Movie {
 
     private String title;
     private String genre;
@@ -8,19 +8,16 @@ public class Film {
     private String actor;
     private int ratingIMDB;
     private String mood;
-    private String language;
-    private String subtitle;
+
     private int year;
 
-    public Film(String title, String genre, String ratingAge, String actor, int ratingIMDB, String mood, String language, String subtitle, int year) {
+    public Movie(String title, String genre, String ratingAge, String actor, int ratingIMDB, String mood, int year) {
         this.title = title;
         this.genre = genre;
         this.ratingAge = ratingAge;
         this.actor = actor;
         this.ratingIMDB = ratingIMDB;
         this.mood = mood;
-        this.language = language;
-        this.subtitle = subtitle;
         this.year = year;
     }
 
@@ -70,22 +67,6 @@ public class Film {
 
     public void setMood(String mood) {
         this.mood = mood;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
     }
 
     public int getYear() {

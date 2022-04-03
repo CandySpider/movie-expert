@@ -1,0 +1,6 @@
+org\example\App.class
+org\example\model\Movie.class
+org\example\SystemInfo.class
+module-info.class
+org\example\inference\Inference.class
+org\example\App$1.class

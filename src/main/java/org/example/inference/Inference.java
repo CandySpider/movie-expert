@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 public class Inference {
 
-    private ArrayList<Boolean> listaPremiseInitiale;
-    private ArrayList<String> listaConcluziiPartiale;
-    private ArrayList<String> listaConcluziiFinale;
+    private ArrayList<Boolean> initialPremisesList;
+    private ArrayList<String> partialPremisesList;
+    private ArrayList<String> finalPremisesList;
 
     private boolean ageAbove17 = false, ageUnder17 = false;
     private boolean preferredActor = false, noPreferredActor = false;
-    private boolean topRatedFilms = false, noPreferenceTopRatedFilms = false;
-    private boolean recentFilm = false, classicFilm = false, noPreferenceFilmYear = false;
+    private boolean topRatedMovies = false, noPreferenceTopRatedMovies = false;
+    private boolean recentMovie = false, classicMovie = false, noPreferenceMovieYear = false;
+    private String mood = "";
 
     public Inference(){
 
@@ -21,23 +22,26 @@ public class Inference {
                      boolean ageUnder17,
                      boolean preferredActor,
                      boolean noPreferredActor,
-                     boolean topRatedFilms,
-                     boolean noPreferenceTopRatedFilms,
-                     boolean recentFilm,
-                     boolean classicFilm,
-                     boolean noPreferenceFilmYear) {
+                     boolean topRatedMovies,
+                     boolean noPreferenceTopRatedMovies,
+                     boolean recentMovie,
+                     boolean classicMovie,
+                     boolean noPreferenceMovieYear,
+                     String mood) {
         this.ageAbove17 = ageAbove17;
         this.ageUnder17 = ageUnder17;
         this.preferredActor = preferredActor;
         this.noPreferredActor = noPreferredActor;
-        this.topRatedFilms = topRatedFilms;
-        this.noPreferenceTopRatedFilms = noPreferenceTopRatedFilms;
-        this.recentFilm = recentFilm;
-        this.classicFilm = classicFilm;
-        this.noPreferenceFilmYear = noPreferenceFilmYear;
+        this.topRatedMovies = topRatedMovies;
+        this.noPreferenceTopRatedMovies = noPreferenceTopRatedMovies;
+        this.recentMovie = recentMovie;
+        this.classicMovie = classicMovie;
+        this.noPreferenceMovieYear = noPreferenceMovieYear;
+        this.mood = mood;
     }
 
     public String startInference(){
+
 //        while(true) { // while extern
 //            while(true) { // while intern
 //                break;

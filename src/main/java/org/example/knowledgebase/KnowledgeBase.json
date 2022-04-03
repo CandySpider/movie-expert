@@ -76,6 +76,7 @@
       "noPreferredMovieYear"
     ]
   },
+
   "finalPremisesList": {
     "movieTitle": [
       "The Perfect Date",
@@ -101,6 +102,103 @@
       "Sierra Burgess Is A Loser"
     ]
   },
+
+  "mood_rules" : {
+    "depressive" : {
+      "if" : {
+        "felt_down": "many_times"
+      },
+      "then": "depressive",
+      "else": "happy"
+    },
+
+    "love": {
+      "if": {
+        "lover": "true"
+      },
+      "then" : "love",
+      "else" : {
+        "if" : {
+          "special_person" : "true"
+        },
+        "then": "love",
+        "else": "sad"
+      }
+    },
+
+    "stressed": {
+      "if" : {
+        "lots_to_do": "true",
+        "no_time_left": "true"
+      },
+      "then" : "stressed",
+      "else" : "relaxed"
+    }
+  },
+
+  "mood_film_genre_rules" : {
+    "comedy": {
+      "if" : {
+        "mood": "stressed"
+      },
+      "then" : "comedy",
+      "else" : {
+        "if" : {
+          "mood": "sad"
+        },
+        "then" : "comedy",
+        "else" : {
+          "if" : {
+            "mood": "depressive"
+          },
+          "then" : "comedy"
+        }
+      }
+    },
+
+    "family": {
+      "if" : {
+        "mood": "stressed"
+      },
+      "then" : "comedy",
+      "else" : {
+        "if" : {
+          "mood": "sad"
+        },
+        "then" : "comedy",
+        "else" : {
+          "if" : {
+            "mood": "depressive"
+          },
+          "then" : "comedy"
+        }
+      }
+    },
+
+    "romantic" : {
+      "if" : {
+        "mood": "love"
+      },
+      "then" : "romantic",
+      "else" : {
+        "if" : {
+          "mood": "sad"
+        },
+        "then" : "romantic",
+        "else" : {
+          "if" : {
+            "mood": "depressive"
+          },
+          "then" : "romantic"
+        }
+      }
+    },
+
+    "drama" : {
+
+    }
+  },
+
   "scope_rules": {
     "The_Perfect_Date": {
       "if": {

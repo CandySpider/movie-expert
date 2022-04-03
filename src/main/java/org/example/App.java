@@ -11,7 +11,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.example.inference.Inference;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -42,14 +49,50 @@ public class App extends Application {
     final TextField actorsTextField = new TextField("");
     final TextArea textArea = new TextArea("");
 
-
+    @SuppressWarnings("unchecked")
     @Override
     public void start(Stage stage) {
+
+        JSONParser jsonParser = new JSONParser();
 
         final ToggleGroup toggleGroupUserAge = new ToggleGroup();
         final ToggleGroup toggleGroupPreferredActor = new ToggleGroup();
         final ToggleGroup toggleGroupTopRatedFilms = new ToggleGroup();
         final ToggleGroup toggleGroupFilmYear = new ToggleGroup();
+        final ToggleGroup toggleGroupFeltDown = new ToggleGroup();
+        final ToggleGroup toggleGroupLoverOrSpecialPerson = new ToggleGroup();
+        final ToggleGroup toggleGroupLotsToDoAndFewTimeLeft = new ToggleGroup();
+
+        try (FileReader fileReader = new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json")){
+
+            Object object = jsonParser.parse(fileReader);
+            JSONObject jsonObject = (JSONObject) object;
+//            String initialPremisesList = (String) jsonObject.get("initialPremisesList");
+
+//            JSONArray jsonFileContent = new JSONArray();
+//            jsonFileContent.add(object);
+//            System.out.println("OBJECT: " + object);
+//            jsonFileContent.forEach(jsfc -> parseJsonFileContent((JSONObject) jsfc));
+//            jsonFileContent.forEach(JSONObject jsfc : jsonFileContent);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+//        try {
+//            Object obj = jsonParser.parse(new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json"));
+//            JSONObject
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
         stage.setTitle("Movies expert");
         Group layout = new Group();
@@ -66,6 +109,12 @@ public class App extends Application {
         RadioButton recentFilmRadioButton = new RadioButton("recent");
         RadioButton classicFilmRadioButton = new RadioButton("classic");
         RadioButton noPreferenceFilmYearRadioButton = new RadioButton("No preference for film's year? Mark this!");
+        RadioButton feltDownManyTimesRadioButton = new RadioButton("Many times");
+        RadioButton notSpecifiedFeltDownManyTimesRadioButton = new RadioButton("I will not answer");
+        RadioButton havingALoverOrSpecialPersonRadioButton = new RadioButton("YES");
+        RadioButton notSpecifiedHavingALoverOrSpecialPersonRadioButton = new RadioButton("I will not answer");
+        RadioButton havingLotsToDoAndFewTimeLeftRadioButton = new RadioButton("YES");
+        RadioButton notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton = new RadioButton("I will not answer");
 
         ageAbove17RadioButton.setToggleGroup(toggleGroupUserAge);
         ageUnder17RadioButton.setToggleGroup(toggleGroupUserAge);
@@ -79,6 +128,15 @@ public class App extends Application {
         recentFilmRadioButton.setToggleGroup(toggleGroupFilmYear);
         classicFilmRadioButton.setToggleGroup(toggleGroupFilmYear);
         noPreferenceFilmYearRadioButton.setToggleGroup(toggleGroupFilmYear);
+
+        feltDownManyTimesRadioButton.setToggleGroup(toggleGroupFeltDown);
+        notSpecifiedFeltDownManyTimesRadioButton.setToggleGroup(toggleGroupFeltDown);
+
+        havingALoverOrSpecialPersonRadioButton.setToggleGroup(toggleGroupLoverOrSpecialPerson);
+        notSpecifiedHavingALoverOrSpecialPersonRadioButton.setToggleGroup(toggleGroupLoverOrSpecialPerson);
+
+        havingLotsToDoAndFewTimeLeftRadioButton.setToggleGroup(toggleGroupLotsToDoAndFewTimeLeft);
+        notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton.setToggleGroup(toggleGroupLotsToDoAndFewTimeLeft);
 
         Button searchMovieButton = new Button();
         searchMovieButton.setText("Start movie search");
@@ -111,7 +169,17 @@ public class App extends Application {
         gridPane.add(classicFilmRadioButton, 2,3);
         gridPane.add(noPreferenceFilmYearRadioButton, 3,3);
 
-        gridPane.add(searchMovieButton, 1,5);
+        gridPane.add(new Label("In the past two weeks how often have you felt down?"),0,5);
+        gridPane.add(feltDownManyTimesRadioButton, 1 ,5);
+        gridPane.add(notSpecifiedFeltDownManyTimesRadioButton, 2 ,5);
+        gridPane.add(new Label("Do you have a lover or a special person?"),0,7);
+        gridPane.add(havingALoverOrSpecialPersonRadioButton, 1, 7);
+        gridPane.add(notSpecifiedHavingALoverOrSpecialPersonRadioButton,2,7);
+        gridPane.add(new Label("Do you have lots to do at work,and you are short on time?"),0,9);
+        gridPane.add(havingLotsToDoAndFewTimeLeftRadioButton,1,9);
+        gridPane.add(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton,2,9);
+
+        gridPane.add(searchMovieButton, 1,10);
 
         /**
          * if the button is pressed then I save user answers, start inference and open a new window/page with the inference's result (movie title)
@@ -128,6 +196,7 @@ public class App extends Application {
                 boolean preferredActor = false, noPreferredActor = false;
                 boolean topRatedFilms = false, noPreferenceTopRatedFilms = false;
                 boolean recentFilm = false, classicFilm = false, noPreferenceFilmYear = false;
+                String mood = "";
 
                 if(ageAbove17RadioButton.isSelected())
                     ageAbove17 = true;
@@ -151,14 +220,29 @@ public class App extends Application {
                 else if(noPreferenceFilmYearRadioButton.isSelected())
                     noPreferenceFilmYear = true;
 
-                inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear);
+                if(feltDownManyTimesRadioButton.isSelected())
+                    mood = "depressive";
+                else if(notSpecifiedFeltDownManyTimesRadioButton.isSelected())
+                    mood = "happy";
+
+                if(havingALoverOrSpecialPersonRadioButton.isSelected())
+                    mood = "love";
+                else if(notSpecifiedHavingALoverOrSpecialPersonRadioButton.isSelected())
+                    mood = "sad";
+
+                if(havingLotsToDoAndFewTimeLeftRadioButton.isSelected())
+                    mood = "stressed";
+                else if(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton.isSelected())
+                    mood = "relaxed";
+
+                inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear, mood);
 
                 // start inference
                 filmTitle = inference.startInference();
 
                 // display inference's result
-                gridPane.add(new Label("Your recommended film is:"),0,7);
-                gridPane.add(new Label(filmTitle), 1, 7);
+                gridPane.add(new Label("Your recommended film is:"),0,15);
+                gridPane.add(new Label(filmTitle), 1, 15);
             }
         });
 
@@ -166,7 +250,29 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
 
+    }
 
+    private static void parseJsonFileContent(JSONObject jsonFileContent) {
+        // Get initial premises list
+        JSONObject initialPremisesList = (JSONObject) jsonFileContent.get("initialPremisesList");
+        // Get age premises
+        String agePremises = (String) initialPremisesList.get("age");
+        System.out.println(agePremises);
+        // Get actors list
+        ArrayList<String> actorsList = (ArrayList<String>) initialPremisesList.get("actors");
+        for(String actor : actorsList) {
+            System.out.println(actor);
+        }
+        // Get topRatedMoviesPreference
+        ArrayList<String> ratingIMDB = (ArrayList<String>) initialPremisesList.get("topRatedMoviesPreference");
+        for(String rating : ratingIMDB) {
+            System.out.println(rating);
+        }
+        // Get movieYear
+        ArrayList<String> movieYear = (ArrayList<String>) initialPremisesList.get("movieYear");
+        for(String year : movieYear) {
+            System.out.println(year);
+        }
     }
 
 
