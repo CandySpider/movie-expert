@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 
 /**
@@ -36,18 +37,8 @@ public class App extends Application {
     };
 
     public static void main(String[] args) {
-
-//        ArrayList<String> actorsList = new ArrayList<String>();
-//
-//        for(int i = 0; i < actors.length; i++) {
-//            actorsList.add(i, actors[i]);
-//        }
-
         launch();
     }
-
-    final TextField actorsTextField = new TextField("");
-    final TextArea textArea = new TextArea("");
 
     @SuppressWarnings("unchecked")
     @Override
@@ -63,36 +54,17 @@ public class App extends Application {
         final ToggleGroup toggleGroupLoverOrSpecialPerson = new ToggleGroup();
         final ToggleGroup toggleGroupLotsToDoAndFewTimeLeft = new ToggleGroup();
 
+        JSONObject inputJsonObject = new JSONObject();
+
         try (FileReader fileReader = new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json")){
 
-            Object object = jsonParser.parse(fileReader);
-            JSONObject jsonObject = (JSONObject) object;
-//            String initialPremisesList = (String) jsonObject.get("initialPremisesList");
 
-//            JSONArray jsonFileContent = new JSONArray();
-//            jsonFileContent.add(object);
-//            System.out.println("OBJECT: " + object);
-//            jsonFileContent.forEach(jsfc -> parseJsonFileContent((JSONObject) jsfc));
-//            jsonFileContent.forEach(JSONObject jsfc : jsonFileContent);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
-
-//        try {
-//            Object obj = jsonParser.parse(new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json"));
-//            JSONObject
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
 
         stage.setTitle("Movies expert");
         Group layout = new Group();
@@ -200,12 +172,6 @@ public class App extends Application {
 
                 ArrayList<Boolean> initialPremisesArrayList = new ArrayList<>();
                 ArrayList<Boolean> mood = new ArrayList<>();
-                mood.add(mood_depressive);
-                mood.add(mood_happy);
-                mood.add(mood_love);
-                mood.add(mood_sad);
-                mood.add(mood_stressed);
-                mood.add(mood_relaxed);
 
                 if(ageAbove17RadioButton.isSelected())
                     ageAbove17 = true;
@@ -244,7 +210,30 @@ public class App extends Application {
                 else if(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton.isSelected())
                     mood_relaxed = true;
 
-                inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear, mood);
+
+                mood.add(mood_depressive);
+                mood.add(mood_happy);
+                mood.add(mood_love);
+                mood.add(mood_sad);
+                mood.add(mood_stressed);
+                mood.add(mood_relaxed);
+
+                initialPremisesArrayList.add(ageAbove17);
+                initialPremisesArrayList.add(ageUnder17);
+                initialPremisesArrayList.add(preferredActor);
+                initialPremisesArrayList.add(noPreferredActor);
+                initialPremisesArrayList.add(topRatedFilms);
+                initialPremisesArrayList.add(noPreferenceTopRatedFilms);
+                initialPremisesArrayList.add(recentFilm);
+                initialPremisesArrayList.add(classicFilm);
+                initialPremisesArrayList.add(noPreferenceFilmYear);
+                initialPremisesArrayList.addAll(mood);
+
+
+
+                //inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear, mood);
+
+                inference = new Inference(initialPremisesArrayList);
 
                 // start inference
                 filmTitle = inference.startInference();

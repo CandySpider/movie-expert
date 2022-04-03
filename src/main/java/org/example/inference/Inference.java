@@ -18,6 +18,10 @@ public class Inference {
 
     }
 
+    public Inference(ArrayList<Boolean> initialPremisesList) {
+        this.initialPremisesList = initialPremisesList;
+    }
+
     public Inference(boolean ageAbove17,
                      boolean ageUnder17,
                      boolean preferredActor,
