@@ -103,6 +103,36 @@
     ]
   },
 
+  "movie_year_rules" : {
+    "if" : {
+      "movie_year": "greater_equal_2015",
+      "then" : "movie_year_recent",
+      "else" : {
+        "if" : {
+          "movie_year" : "lower_equal_2000",
+          "then" : "movie_year_classic",
+          "else" : "noPreferredFilmYear"
+        }
+      }
+    }
+  },
+
+  "user_age_rules" : {
+    "if" : {
+      "age" : "ageAbove17",
+      "then" : "ageRating_Restricted",
+      "else" : "ageRating_General"
+    }
+  },
+
+  "ratingIMDB_rules" : {
+    "if" : {
+      "rating" : "greater_equal_7",
+      "then" : "topRatedMovies",
+      "else" : "noPreferredTopRatedMovies"
+    }
+  },
+
   "mood_rules" : {
     "depressive" : {
       "if" : {

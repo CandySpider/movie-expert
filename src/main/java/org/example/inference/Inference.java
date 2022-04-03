@@ -12,7 +12,7 @@ public class Inference {
     private boolean preferredActor = false, noPreferredActor = false;
     private boolean topRatedMovies = false, noPreferenceTopRatedMovies = false;
     private boolean recentMovie = false, classicMovie = false, noPreferenceMovieYear = false;
-    private String mood = "";
+    private ArrayList<Boolean> mood = new ArrayList<>();
 
     public Inference(){
 
@@ -27,7 +27,7 @@ public class Inference {
                      boolean recentMovie,
                      boolean classicMovie,
                      boolean noPreferenceMovieYear,
-                     String mood) {
+                     ArrayList<Boolean> mood) {
         this.ageAbove17 = ageAbove17;
         this.ageUnder17 = ageUnder17;
         this.preferredActor = preferredActor;
@@ -42,8 +42,18 @@ public class Inference {
 
     public String startInference(){
 
-//        while(true) { // while extern
-//            while(true) { // while intern
+//        while(true) {
+//              /*
+//                 while extern MA OPRESC IN MOMENTUL IN CARE LA ULTIMA TRECERE NU S-A VALIDAT NICI O REGULA SAU
+//                  NU A APARUT NICI O CONCLUZIE PARTIALA INREGISTRATA IN LISTA DE CONCLUZII PARTIALE ATUNCI MA OPRESC
+//              */
+//            while(true) {
+//                  /*
+//                     while intern - PARCURG TOATE REGULILE SI PENTRU FIECARE REGULA MA UIT IN PARTEA STANGA SA VAD DACA TOATE PREMISELE EI SUNT
+//		                ADEVARATE SAU NU		DACA DA => CONCLUZIE ADEVARATA => DACA ESTE CAZUL O INREGISTREZ IN LISTA DE CONCLUZII PARTIALE DACA EI
+//		                NU EXISTA DEJA, MARCHEZ FAPTUL CA S-A FACUT O SCHIMBARE IN ULTIMA TRECERE SI MA UIT DACA ACEA CONCLUZIE NU ESTE SI IN LISTA DE
+//		                CONCLUZII FINALE	DACA DA OPRESC INFERENTA SI AM CONCLUZIA	 DACA NU TREC LA URMATOAREA REGULA SI TOT ASA MAI DEPARTE
+//		            */
 //                break;
 //            }
 //            break;

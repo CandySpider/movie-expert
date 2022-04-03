@@ -196,7 +196,16 @@ public class App extends Application {
                 boolean preferredActor = false, noPreferredActor = false;
                 boolean topRatedFilms = false, noPreferenceTopRatedFilms = false;
                 boolean recentFilm = false, classicFilm = false, noPreferenceFilmYear = false;
-                String mood = "";
+                boolean mood_depressive = false, mood_happy = false, mood_love = false, mood_sad = false, mood_stressed = false, mood_relaxed = false;
+
+                ArrayList<Boolean> initialPremisesArrayList = new ArrayList<>();
+                ArrayList<Boolean> mood = new ArrayList<>();
+                mood.add(mood_depressive);
+                mood.add(mood_happy);
+                mood.add(mood_love);
+                mood.add(mood_sad);
+                mood.add(mood_stressed);
+                mood.add(mood_relaxed);
 
                 if(ageAbove17RadioButton.isSelected())
                     ageAbove17 = true;
@@ -221,19 +230,19 @@ public class App extends Application {
                     noPreferenceFilmYear = true;
 
                 if(feltDownManyTimesRadioButton.isSelected())
-                    mood = "depressive";
+                    mood_depressive = true;
                 else if(notSpecifiedFeltDownManyTimesRadioButton.isSelected())
-                    mood = "happy";
+                    mood_happy = true;
 
                 if(havingALoverOrSpecialPersonRadioButton.isSelected())
-                    mood = "love";
+                    mood_love = true;
                 else if(notSpecifiedHavingALoverOrSpecialPersonRadioButton.isSelected())
-                    mood = "sad";
+                    mood_sad = true;
 
                 if(havingLotsToDoAndFewTimeLeftRadioButton.isSelected())
-                    mood = "stressed";
+                    mood_stressed = true;
                 else if(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton.isSelected())
-                    mood = "relaxed";
+                    mood_relaxed = true;
 
                 inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear, mood);
 
