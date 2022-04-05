@@ -1,0 +1,38 @@
+{
+  "movie": [
+    {
+      "title": "The Perfect Date",
+      "genre": "comedy",
+      "ratingAge": "PG-13",
+      "actor": "Laura Marano",
+      "ratingIMDB": "5.8",
+      "mood": "stressed",
+      "language": "english",
+      "subtitle": "romanian",
+      "year": 2019
+    },
+    {
+      "title": "The Perfect",
+      "genre": "action",
+      "ratingAge": "PG-17",
+      "actor": "Brad Colins",
+      "ratingIMDB": "7.8",
+      "mood": "happy",
+      "language": "english",
+      "subtitle": "romanian",
+      "year": 2019
+    },
+    {
+      "title": "District13",
+      "genre": "action",
+      "ratingAge": "PG-17",
+      "actor": "Will Smith",
+      "ratingIMDB": "9.8",
+      "mood": "happy",
+      "language": "english",
+      "subtitle": "romanian",
+      "year": 2019
+    }
+  ]
+}
+

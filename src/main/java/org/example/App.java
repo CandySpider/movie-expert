@@ -30,10 +30,10 @@ public class App extends Application {
 
     private Inference inference = new Inference();
 
-    static String[] actors = {"Laura_Marano","Ryan_Potter","Olivia_Ritchie","Robin_Williams","Matt_Damon","Taner_Stine","Evan_Hofer","Sandra_Bullock",
-            "John_Hamm","Jason_Schwartzman","J_K_Simmons","Paige_O'Hara","Robby_Benson","Jay_Baruchel","Gerard_Butler","Maryl_Streep","Amanda_Seyfried","Christian_Bale",
-            "Albert_Brooks","Ellen_DeGeneres","Scott_Weinger","Keanu_Reeves","Melissa_McCarthy","Asa_Butterfield","Chloe_Grace_Moretz","Morgan_Freeman","Kodi_Smith_McPhee",
-            "Francois_Cluze","Omar_Sy","Edward_Asner","Jordan_Nagai","Scarlet_Johansson","John_Cena","Shannon_Purser"
+    static String[] actors = {"Laura_Marano", "Ryan_Potter", "Olivia_Ritchie", "Robin_Williams", "Matt_Damon", "Taner_Stine", "Evan_Hofer", "Sandra_Bullock",
+            "John_Hamm", "Jason_Schwartzman", "J_K_Simmons", "Paige_O'Hara", "Robby_Benson", "Jay_Baruchel", "Gerard_Butler", "Maryl_Streep", "Amanda_Seyfried", "Christian_Bale",
+            "Albert_Brooks", "Ellen_DeGeneres", "Scott_Weinger", "Keanu_Reeves", "Melissa_McCarthy", "Asa_Butterfield", "Chloe_Grace_Moretz", "Morgan_Freeman", "Kodi_Smith_McPhee",
+            "Francois_Cluze", "Omar_Sy", "Edward_Asner", "Jordan_Nagai", "Scarlet_Johansson", "John_Cena", "Shannon_Purser"
     };
 
     public static void main(String[] args) {
@@ -45,6 +45,8 @@ public class App extends Application {
     public void start(Stage stage) {
 
         JSONParser jsonParser = new JSONParser();
+        //valid
+        JSONParserFromKB.getMoviesFromJSON();
 
         final ToggleGroup toggleGroupUserAge = new ToggleGroup();
         final ToggleGroup toggleGroupPreferredActor = new ToggleGroup();
@@ -56,8 +58,7 @@ public class App extends Application {
 
         JSONObject inputJsonObject = new JSONObject();
 
-        try (FileReader fileReader = new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json")){
-
+        try (FileReader fileReader = new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json")) {
 
 
         } catch (FileNotFoundException e) {
@@ -68,7 +69,7 @@ public class App extends Application {
 
         stage.setTitle("Movies expert");
         Group layout = new Group();
-        Scene scene = new Scene(layout, 1280, 960);
+        Scene scene = new Scene(layout, 1280, 720);
 
         GridPane gridPane = new GridPane();
 
@@ -115,43 +116,43 @@ public class App extends Application {
 
         final ComboBox actorsComboBox = new ComboBox();
 
-        for(int i = 0; i < actors.length; i++) {
+        for (int i = 0; i < actors.length; i++) {
             actorsComboBox.getItems().add(actors[i]);
         }
 
         gridPane.setVgap(8);
         gridPane.setHgap(20);
-        gridPane.setPadding(new Insets(5,5,5,5));
+        gridPane.setPadding(new Insets(5, 5, 5, 5));
 
-        gridPane.add(new Label("How old are you?"),0,0);
-        gridPane.add(ageUnder17RadioButton, 1,0);
-        gridPane.add(ageAbove17RadioButton, 2,0);
+        gridPane.add(new Label("How old are you?"), 0, 0);
+        gridPane.add(ageUnder17RadioButton, 1, 0);
+        gridPane.add(ageAbove17RadioButton, 2, 0);
 
-        gridPane.add(new Label("Pick your preferred actor"),0,1);   // column = 0, row = 1
-        gridPane.add(actorsComboBox,1,1);   // column = 1, row = 1
-        gridPane.add(preferredActorRadioButton,2,1);   // column = 2, row = 1
-        gridPane.add(noPreferredActorRadioButton,3,1); // column = 4, row = 1
+        gridPane.add(new Label("Pick your preferred actor"), 0, 1);   // column = 0, row = 1
+        gridPane.add(actorsComboBox, 1, 1);   // column = 1, row = 1
+        gridPane.add(preferredActorRadioButton, 2, 1);   // column = 2, row = 1
+        gridPane.add(noPreferredActorRadioButton, 3, 1); // column = 4, row = 1
 
-        gridPane.add(new Label("Do you prefer top rated films?"), 0,2);   // column = 0, row = 2
+        gridPane.add(new Label("Do you prefer top rated films?"), 0, 2);   // column = 0, row = 2
         gridPane.add(topRatedFilmsRadioButton, 1, 2);
         gridPane.add(noPreferenceTopRatedFilmsRadioButton, 2, 2);
 
         gridPane.add(new Label("What type of film do you prefer?"), 0, 3);
-        gridPane.add(recentFilmRadioButton, 1,3);
-        gridPane.add(classicFilmRadioButton, 2,3);
-        gridPane.add(noPreferenceFilmYearRadioButton, 3,3);
+        gridPane.add(recentFilmRadioButton, 1, 3);
+        gridPane.add(classicFilmRadioButton, 2, 3);
+        gridPane.add(noPreferenceFilmYearRadioButton, 3, 3);
 
-        gridPane.add(new Label("In the past two weeks how often have you felt down?"),0,5);
-        gridPane.add(feltDownManyTimesRadioButton, 1 ,5);
-        gridPane.add(notSpecifiedFeltDownManyTimesRadioButton, 2 ,5);
-        gridPane.add(new Label("Do you have a lover or a special person?"),0,7);
+        gridPane.add(new Label("In the past two weeks how often have you felt down?"), 0, 5);
+        gridPane.add(feltDownManyTimesRadioButton, 1, 5);
+        gridPane.add(notSpecifiedFeltDownManyTimesRadioButton, 2, 5);
+        gridPane.add(new Label("Do you have a lover or a special person?"), 0, 7);
         gridPane.add(havingALoverOrSpecialPersonRadioButton, 1, 7);
-        gridPane.add(notSpecifiedHavingALoverOrSpecialPersonRadioButton,2,7);
-        gridPane.add(new Label("Do you have lots to do at work,and you are short on time?"),0,9);
-        gridPane.add(havingLotsToDoAndFewTimeLeftRadioButton,1,9);
-        gridPane.add(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton,2,9);
+        gridPane.add(notSpecifiedHavingALoverOrSpecialPersonRadioButton, 2, 7);
+        gridPane.add(new Label("Do you have lots to do at work,and you are short on time?"), 0, 9);
+        gridPane.add(havingLotsToDoAndFewTimeLeftRadioButton, 1, 9);
+        gridPane.add(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton, 2, 9);
 
-        gridPane.add(searchMovieButton, 1,10);
+        gridPane.add(searchMovieButton, 1, 10);
 
         /**
          * if the button is pressed then I save user answers, start inference and open a new window/page with the inference's result (movie title)
@@ -173,41 +174,41 @@ public class App extends Application {
                 ArrayList<Boolean> initialPremisesArrayList = new ArrayList<>();
                 ArrayList<Boolean> mood = new ArrayList<>();
 
-                if(ageAbove17RadioButton.isSelected())
+                if (ageAbove17RadioButton.isSelected())
                     ageAbove17 = true;
-                else if(ageUnder17RadioButton.isSelected())
-                    ageUnder17 = true;
+                else if (ageUnder17RadioButton.isSelected())
+                    ageUnder17 = false;
 
-                if(preferredActorRadioButton.isSelected())
+                if (preferredActorRadioButton.isSelected())
                     preferredActor = true;
-                else if(noPreferredActorRadioButton.isSelected())
+                else if (noPreferredActorRadioButton.isSelected())
                     noPreferredActor = true;
 
-                if(topRatedFilmsRadioButton.isSelected())
+                if (topRatedFilmsRadioButton.isSelected())
                     topRatedFilms = true;
                 else if (noPreferenceTopRatedFilmsRadioButton.isSelected())
                     noPreferenceTopRatedFilms = true;
 
-                if(recentFilmRadioButton.isSelected())
+                if (recentFilmRadioButton.isSelected())
                     recentFilm = true;
-                else if(classicFilmRadioButton.isSelected())
+                else if (classicFilmRadioButton.isSelected())
                     classicFilm = true;
-                else if(noPreferenceFilmYearRadioButton.isSelected())
+                else if (noPreferenceFilmYearRadioButton.isSelected())
                     noPreferenceFilmYear = true;
 
-                if(feltDownManyTimesRadioButton.isSelected())
+                if (feltDownManyTimesRadioButton.isSelected())
                     mood_depressive = true;
-                else if(notSpecifiedFeltDownManyTimesRadioButton.isSelected())
+                else if (notSpecifiedFeltDownManyTimesRadioButton.isSelected())
                     mood_happy = true;
 
-                if(havingALoverOrSpecialPersonRadioButton.isSelected())
+                if (havingALoverOrSpecialPersonRadioButton.isSelected())
                     mood_love = true;
-                else if(notSpecifiedHavingALoverOrSpecialPersonRadioButton.isSelected())
+                else if (notSpecifiedHavingALoverOrSpecialPersonRadioButton.isSelected())
                     mood_sad = true;
 
-                if(havingLotsToDoAndFewTimeLeftRadioButton.isSelected())
+                if (havingLotsToDoAndFewTimeLeftRadioButton.isSelected())
                     mood_stressed = true;
-                else if(notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton.isSelected())
+                else if (notSpecifiedHavingLotsToDoAndFewTimeLeftRadioButton.isSelected())
                     mood_relaxed = true;
 
 
@@ -230,7 +231,6 @@ public class App extends Application {
                 initialPremisesArrayList.addAll(mood);
 
 
-
                 //inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear, mood);
 
                 inference = new Inference(initialPremisesArrayList);
@@ -239,7 +239,7 @@ public class App extends Application {
                 filmTitle = inference.startInference();
 
                 // display inference's result
-                gridPane.add(new Label("Your recommended film is:"),0,15);
+                gridPane.add(new Label("Your recommended film is:"), 0, 15);
                 gridPane.add(new Label(filmTitle), 1, 15);
             }
         });
@@ -258,21 +258,20 @@ public class App extends Application {
         System.out.println(agePremises);
         // Get actors list
         ArrayList<String> actorsList = (ArrayList<String>) initialPremisesList.get("actors");
-        for(String actor : actorsList) {
+        for (String actor : actorsList) {
             System.out.println(actor);
         }
         // Get topRatedMoviesPreference
         ArrayList<String> ratingIMDB = (ArrayList<String>) initialPremisesList.get("topRatedMoviesPreference");
-        for(String rating : ratingIMDB) {
+        for (String rating : ratingIMDB) {
             System.out.println(rating);
         }
         // Get movieYear
         ArrayList<String> movieYear = (ArrayList<String>) initialPremisesList.get("movieYear");
-        for(String year : movieYear) {
+        for (String year : movieYear) {
             System.out.println(year);
         }
     }
-
 
 
 }
