@@ -120,7 +120,7 @@
 
     "user_age_rules" : {
       "if" : {
-        "age" : "ageAbove17",
+        "age" : "ageUnder17",
         "then" : "ageRating_Restricted",
         "else" : "ageRating_General"
       }
@@ -191,17 +191,17 @@
         "if" : {
           "mood": "stressed"
         },
-        "then" : "comedy",
+        "then" : "family",
         "else" : {
           "if" : {
             "mood": "sad"
           },
-          "then" : "comedy",
+          "then" : "family",
           "else" : {
             "if" : {
               "mood": "depressive"
             },
-            "then" : "comedy"
+            "then" : "family"
           }
         }
       },
@@ -230,6 +230,20 @@
       }
     },
 
+"movies" : {
+  "The Perfect Date": {
+    "genre": "comedy",
+    "ratingAge": "PG-13",
+    "actor": "Laura Marano",
+    "ratingIMDB": "5.8",
+    "mood": "stressed",
+    "language": "english",
+    "subtitle": "romanian",
+    "year": 2019
+  }
+}
+
+},
     "scope_rules": {
       "The_Perfect_Date": {
         "if": {
@@ -1142,6 +1156,6 @@
         }
       }
     }
-  }
 }
+
 

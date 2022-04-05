@@ -11,14 +11,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.example.inference.Inference;
+import org.json.simple.*;
+import org.json.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -35,6 +37,7 @@ public class App extends Application {
             "Albert_Brooks","Ellen_DeGeneres","Scott_Weinger","Keanu_Reeves","Melissa_McCarthy","Asa_Butterfield","Chloe_Grace_Moretz","Morgan_Freeman","Kodi_Smith_McPhee",
             "Francois_Cluze","Omar_Sy","Edward_Asner","Jordan_Nagai","Scarlet_Johansson","John_Cena","Shannon_Purser"
     };
+    private String filePath;
 
     public static void main(String[] args) {
         launch();
@@ -56,13 +59,32 @@ public class App extends Application {
 
         JSONObject inputJsonObject = new JSONObject();
 
-        try (FileReader fileReader = new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json")){
+        try
+        {
+            FileReader fileReader = new FileReader("src/main/java/org/example/knowledgebase/KnowledgeBase.json");
+//            File testFile = new File("");
+//            String currentPath = testFile.getAbsolutePath();             //magic spell for finding the path
+//            this.filePath  = currentPath+"src/main/java/org/example/knowledgebase/KnowledgeBase.json";
+//            String contents = new String((Files.readAllBytes(Paths.get(this.filePath))));
+//
+//            JSONObject myObject = new JSONObject(contents);
+//            JSONArray myArray = myObject.getJSONArray("personalData");
+//            PrintWriter writer = new PrintWriter(this.filePath);
+//            writer.print(myObject);
+//            writer.close();
 
+            Object obj = jsonParser.parse(fileReader);
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONObject jsonChildObject = (JSONObject)jsonObject.get("initialPremisesList");
+
+//            jsonObject
 
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
 
@@ -229,7 +251,7 @@ public class App extends Application {
                 initialPremisesArrayList.add(noPreferenceFilmYear);
                 initialPremisesArrayList.addAll(mood);
 
-
+                //System.out.println(initialPremisesArrayList);
 
                 //inference = new Inference(ageAbove17, ageUnder17,preferredActor,noPreferredActor,topRatedFilms,noPreferenceTopRatedFilms,recentFilm,classicFilm,noPreferenceFilmYear, mood);
 

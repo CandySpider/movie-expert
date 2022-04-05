@@ -35,8 +35,6 @@ if gen_romantic & ratingVarsta_PG-13 & actor_Laura_Marano & ratingIMDB_5.8 & moo
 	then The_Perfect_Date
 
 
-
-
 if film_genre_comedy & ratingVarsta_PG-13 & actor_Shannon_Purser & ratingIMDB_5.8 & mood_disappointed & limba_Engleza & subtitrare_Romana & an_2018
 	then Sierra_Burges_Is_A_Looser
 
